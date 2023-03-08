@@ -1,0 +1,69 @@
+What do we want to achieve?
+
+To allow the user to get the details for all books
+
+What do we want a user to be able to do?
+
+Get a list of all the books and their data
+
+Request type
+
+GET
+
+Endpoint/route
+
+/books/getallbooks
+
+Associated Function
+
+getAllBooks
+
+Data Requirements
+
+DB
+
+Genre:
+    id: number
+    genre: string
+
+Book:
+    id: number
+    title: string   
+    author: string
+    genre: string
+
+Request
+
+Body: N/A
+
+Response
+
+SuccessResponse:
+    type: object  
+    status: 200  
+    properties:
+        message:
+            type: string
+            example: 'success'
+        books:
+            type: array
+            items:
+                book:
+                    properties:
+                        id: integer 
+                        title: string   
+                        author: string
+                        genre: string 
+
+ErrorResponse:
+    type: object
+    status: 501
+    properties:
+        errorMessage: 
+            type: string
+            example: "Validation error" - access using error.message
+        error:
+            type: object
+            description: the error
+            properties:
+                error: error
